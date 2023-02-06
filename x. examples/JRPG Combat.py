@@ -311,8 +311,7 @@ def attack_selector_player(battler, enemy):
             print('1 Golden Arrow\t2 Slowing Arrow\n3 Super Arrow\t4 Vigor')
             option = int(input('Insert a number to select an attack: '))
             if option == 1:
-                damage = battler.golden_arrow()
-                return damage
+                return battler.golden_arrow()
             elif option == 2:
                 return battler.slowing_arrow(enemy)
             elif option == 3:
