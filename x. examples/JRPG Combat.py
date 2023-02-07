@@ -259,7 +259,7 @@ def char_creator():
 def char_selector():
     des_name = input('Select your character by typing its name\n')
     for _, v in enumerate(playerCharacters):
-        if des_name == v.name:
+        if des_name == v.actName:
             return v
     else:
         print('Character not found.')
@@ -345,7 +345,7 @@ def attack_module_enemy(enemy_damage, player_hp):
 
 
 def attack_module_enemy2(enemy, player):
-    if enemy.name == 'Yaldabaoth':
+    if enemy.actName == 'Yaldabaoth':
         if enemy.hp in range(1500, 3000):
             healthy_attack = random.randint(1, 200)
             if healthy_attack in range(1, 150):
@@ -368,7 +368,7 @@ def attack_module_enemy2(enemy, player):
                 return player.hp - enemy.apocalypse()
             elif scared_attack in range(101, 150):
                 return player.hp - enemy.torment(player)
-    elif enemy.name == 'Grrlgrrl':
+    elif enemy.actName == 'Grrlgrrl':
         if enemy.hp in range(600, 1200):
             healthy_attack = random.randint(1, 100)
             if healthy_attack in range(10, 100):
@@ -387,7 +387,7 @@ def attack_module_enemy2(enemy, player):
                 return player.hp - enemy.murloc_slash()
             else:
                 return player.hp - enemy.damage
-    elif enemy.name == 'Blob':
+    elif enemy.actName == 'Blob':
         if enemy.hp in range(1000, 3000):
             return player.hp - enemy.blobby_attack(player)
         elif enemy.hp in range(1, 999):
@@ -396,7 +396,7 @@ def attack_module_enemy2(enemy, player):
                 return player.hp - enemy.blobby_attack(player)
             elif scared_attack in range(6, 10):
                 return player.hp - enemy.sabotage(player)
-    elif enemy.name == 'Holger':
+    elif enemy.actName == 'Holger':
         if enemy.hp in range(1000, 2200):
             healthy_attack = random.randint(1, 100)
             if healthy_attack in range(1, 89):
@@ -440,7 +440,7 @@ def battle(battler, enemy):
                 time.sleep(1)
             elif result is False:
                 battler.hp = attack_module_enemy2(enemy, battler)
-                print(f'{enemy.name} did {enemy.damage} to you. You now have {battler.hp} of health')
+                print(f'{enemy.actName} did {enemy.damage} to you. You now have {battler.hp} of health')
                 time.sleep(1)
             elif result is None:
                 print('You and your enemy clash insulting each other!')
